@@ -12,6 +12,11 @@ export class EventsController {
     return this.eventsService.create(createEventDto);
   }
 
+  @Get('/:id/slice/')
+  createSlice() {
+    return this.eventsService.getSlice();
+  }
+
   @Get()
   findAll() {
     return this.eventsService.findAll();
