@@ -1,10 +1,14 @@
 import React from 'react'
 import EventList from '../components/EventList/EventList';
+import Navbar from '../components/Navbar/Navbar';
 
 function Home() {
   return (
     <div>
-      <EventList />
+      <Navbar />
+      <main>
+        <EventList />
+      </main>
     </div>
   )
 }

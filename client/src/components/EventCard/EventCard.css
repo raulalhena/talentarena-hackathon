@@ -1,10 +1,16 @@
 .card{
-  margin: 20px;
-  background: white;
+  background: #ddd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.358);
   padding: 16px;
   border-radius: 10px;
-  width: 20%;
+  min-width: 20%;
+  box-shadow: 0.2em 0.2em rgba(200, 200, 200, 10%);
+  border: 1px solid #fd0101;
+  
+}
+
+h1 {
+  color: #fd0101;
 }
 
 /* .card a{

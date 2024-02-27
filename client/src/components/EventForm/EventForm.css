@@ -1,0 +1,44 @@
+.event-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30%;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 0 50px 0 50px; 
+}
+
+.slice-select {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  
+}
+
+.slice-select:default {
+  color: #777;
+}
+
+input {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+

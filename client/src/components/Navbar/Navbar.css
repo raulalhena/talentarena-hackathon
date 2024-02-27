@@ -1,0 +1,24 @@
+.navbar {
+  /* height: 155%; */
+  width: 100%;
+  /* border: 1px solid orange; */
+  display: flex;
+  justify-content: space-between;
+  background: #3c3c3c;
+  padding: 15px;
+}
+
+.logo {
+  margin: 5px 0 0 50px;
+  max-width: 150px;
+  max-height: 50px;
+  border-radius: 3px;
+}
+
+.avatar {
+  margin: 5px 50px 0 0;
+  border-radius: 50%;
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid #fff;
+}

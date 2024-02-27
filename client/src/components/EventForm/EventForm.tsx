@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './EventForm.css';
 
 interface FormData {
   name: string;
@@ -66,16 +67,20 @@ function EventForm() {
   }
 
   return (
-    <div>
-      Name:
-      <input type="text" id="name" name="name" />
-      Slice:
-      <input type="text" id="slice"name="slice" />
-      Max Connections:
-      <input type="text" id="maxConnections" name="maxConnections" />
-      Max Devices:
-      <input type="text" id="maxDevices" name="maxDevices" />
-      <button onClick={handleClick}>Save</button>
+    <div className='event-form-container'>
+      <h1>Event Form</h1>
+      <div className='event-form'>
+        <input type="text" id="name" name="name" placeholder='Event name'/>
+        <select id="slice" className='slice-select'>
+          <option default>Slice Option</option>
+          <option name="option1" value="option1">Option1</option>
+          <option name="option2" value="option2">Option2</option>
+          <option name="option3" value="option3">Option3</option>
+        </select>
+        <input type="text" id="maxConnections" name="maxConnections" placeholder='Max. Connections'/>
+        <input type="text" id="maxDevices" name="maxDevices" placeholder='Max. Devices' />
+        <button onClick={handleClick}>Save</button>
+      </div>
     </div>
   )
 }

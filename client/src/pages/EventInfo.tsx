@@ -1,8 +1,13 @@
-import React from 'react'
+import Navbar from "../components/Navbar/Navbar";
 
 function EventInfo() {
   return (
-    <div>EventInfo</div>
+    <div>
+      <Navbar />
+      <main>
+        Event Info
+      </main>
+    </div>
   )
 }
 

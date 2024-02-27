@@ -1,0 +1,22 @@
+.event-list-container {
+  width: 60%;
+  height: auto;
+  /* border: 1px solid red; */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #fd8f03;
+}
+
+.event-list {
+  display:flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
