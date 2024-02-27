@@ -1,11 +1,14 @@
 import { Prop, SchemaFactory } from '@nestjs/mongoose';
-import { ObjectId, HydratedDocument } from 'mongoose';
+import { HydratedDocument } from 'mongoose';
 
 export type EventDocument = HydratedDocument<Event>;
 
 export class Event {
-  @Prop()
-  users: [ObjectId];
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: User.name }],
+    default: [],
+  })
+  attendees: mongoose.Types.ObjectId[];
   @Prop()
   currentSlice: string;
   @Prop()
