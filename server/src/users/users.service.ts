@@ -8,7 +8,7 @@ import { randomUUID } from 'crypto';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) { }
+  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto) {
     try {
@@ -25,7 +25,11 @@ export class UsersService {
   }
 
   async findAll() {
-    return await this.userModel.find();
+    try {
+      return await this.userModel.find();
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
   }
 
   async findOne(id: string) {
