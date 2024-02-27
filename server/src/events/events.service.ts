@@ -124,17 +124,7 @@ export class EventsService {
               '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
             'X-RapidAPI-Host': 'location-retrieval.nokia.rapidapi.com',
           },
-          body: JSON.stringify({
-            device: {
-              networkAccessIdentifier: 'device@testcsp.net',
-              ipv4Address: {
-                publicAddress: '192.0.2.3',
-                privateAddress: '192.0.2.204',
-                publicPort: 80,
-              },
-            },
-            maxAge: 60,
-          }),
+          body: JSON.stringify(locationRetrieval),
         },
       );
       const result = await resp.json();
@@ -203,21 +193,7 @@ export class EventsService {
             'X-RapidAPI-Host':
               'quality-of-service-on-demand.nokia.rapidapi.com',
           },
-          body: JSON.stringify({
-            qosProfile: 'DOWNLINK_L_UPLINK_L',
-            device: {
-              networkAccessIdentifier: 'device@testcsp.net',
-              ipv4Address: {
-                publicAddress: '233.252.0.2',
-                privateAddress: '192.0.2.25',
-                publicPort: 80,
-              },
-            },
-            applicationServer: {
-              ipv4Address: '233.252.0.2',
-            },
-            duration: 60,
-          }),
+          body: JSON.stringify(createSessionDto),
         },
       );
       const result = await resp.json();
