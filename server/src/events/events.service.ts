@@ -1,6 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import { LocationRetrieval } from './dto/locationretrieval.dto';
+import { VerifyLocationDto } from './dto/verify-location.dto';
 
 @Injectable()
 export class EventsService {
@@ -39,6 +41,17 @@ export class EventsService {
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }
+  }
+
+  async attachDevice() {
+    return {
+      id: '1',
+      slice: {
+        sst: 0,
+        sd: {},
+      },
+      deviceStatus: 'attached',
+    };
   }
 
   async getSlice() {
@@ -96,6 +109,61 @@ export class EventsService {
 
   async activateSlice() {
     return '';
+  }
+
+  async locationRetrieval(locationRetrieval: LocationRetrieval) {
+    try {
+      const resp = await fetch(
+        'https://location-retrieval.p-eu.rapidapi.com/retrieve',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key':
+              '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
+            'X-RapidAPI-Host': 'location-retrieval.nokia.rapidapi.com',
+          },
+          body: JSON.stringify({
+            device: {
+              networkAccessIdentifier: 'device@testcsp.net',
+              ipv4Address: {
+                publicAddress: '192.0.2.3',
+                privateAddress: '192.0.2.204',
+                publicPort: 80,
+              },
+            },
+            maxAge: 60,
+          }),
+        },
+      );
+      const result = await resp.json();
+      return result;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async verifyLocation(verifyLocation: VerifyLocationDto) {
+    try {
+      const resp = await fetch(
+        'https://location-verification.p-eu.rapidapi.com/verify',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key':
+              '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
+            'X-RapidAPI-Host': 'location-verification.nokia.rapidapi.com',
+          },
+          body: JSON.stringify(verifyLocation),
+        },
+      );
+
+      const result = await resp.json();
+      console.log(result);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
   }
 
   findAll() {
