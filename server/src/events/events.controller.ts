@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  HttpException,
+} from '@nestjs/common';
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -36,7 +45,7 @@ export class EventsController {
   }
 
   @Post('create-session')
-  createSession(@Body() createSessionDto: CreateSessionDto){
+  createSession(@Body() createSessionDto: CreateSessionDto) {
     return this.eventsService.createSession(createSessionDto);
   }
 
