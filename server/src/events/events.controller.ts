@@ -4,6 +4,7 @@ import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { LocationRetrieval } from './dto/locationretrieval.dto';
 import { VerifyLocationDto } from './dto/verify-location.dto';
+import { CreateSessionDto } from './dto/create-session.dto';
 
 @Controller('events')
 export class EventsController {
@@ -27,6 +28,21 @@ export class EventsController {
   @Get('/:id/slice/')
   createSlice() {
     return this.eventsService.getSlice();
+  }
+
+  @Get('/:id/get-session')
+  getSession(@Param('id') id: string) {
+    return this.eventsService.getSession(id);
+  }
+
+  @Post('create-session')
+  createSession(@Body() createSessionDto: CreateSessionDto){
+    return this.eventsService.createSession(createSessionDto);
+  }
+
+  @Delete('delete-session/:id')
+  deleteSession(@Param('id') id: string) {
+    return this.eventsService.deleteSession(id);
   }
 
   @Get()

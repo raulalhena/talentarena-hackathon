@@ -3,6 +3,7 @@ import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { LocationRetrieval } from './dto/locationretrieval.dto';
 import { VerifyLocationDto } from './dto/verify-location.dto';
+import { CreateSessionDto } from './dto/create-session.dto';
 
 @Injectable()
 export class EventsService {
@@ -161,6 +162,88 @@ export class EventsService {
 
       const result = await resp.json();
       console.log(result);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async getSession(resourceId: string) {
+    try {
+      const resp = await fetch(
+        `https://quality-of-service-on-demand.p-eu.rapidapi.com/sessions/${resourceId}`,
+        {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key':
+              '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
+            'X-RapidAPI-Host':
+              'quality-of-service-on-demand.nokia.rapidapi.com',
+          },
+        },
+      );
+      const result = await resp.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async createSession(createSessionDto: CreateSessionDto) {
+    try {
+      const resp = await fetch(
+        'https://quality-of-service-on-demand.p-eu.rapidapi.com/sessions',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key':
+              '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
+            'X-RapidAPI-Host':
+              'quality-of-service-on-demand.nokia.rapidapi.com',
+          },
+          body: JSON.stringify({
+            qosProfile: 'DOWNLINK_L_UPLINK_L',
+            device: {
+              networkAccessIdentifier: 'device@testcsp.net',
+              ipv4Address: {
+                publicAddress: '233.252.0.2',
+                privateAddress: '192.0.2.25',
+                publicPort: 80,
+              },
+            },
+            applicationServer: {
+              ipv4Address: '233.252.0.2',
+            },
+            duration: 60,
+          }),
+        },
+      );
+      const result = await resp.json();
+      console.log(result);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async deleteSession(id: string) {
+    try {
+      await fetch(
+        `https://quality-of-service-on-demand.p-eu.rapidapi.com/sessions/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key':
+              '26b5104305msh5f17503ca63e34ap193df1jsn3cebb9f3a3ce',
+            'X-RapidAPI-Host':
+              'quality-of-service-on-demand.nokia.rapidapi.com',
+          },
+        },
+      );
+
+      return { message: 'deleted session successfully' };
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
