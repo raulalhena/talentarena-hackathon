@@ -9,15 +9,9 @@ export class Event {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: User.name }],
     default: [],
   })
-  attendees: mongoose.Types.ObjectId[];
+  users: mongoose.Types.ObjectId[];
   @Prop()
-  currentSlice: string;
-  @Prop()
-  sliceStatus: string;
-  @Prop()
-  maxDevices: number;
-  @Prop()
-  maxConnections: number;
+  name: string;
   @Prop()
   startedAt: Date;
   @Prop()
@@ -26,6 +20,14 @@ export class Event {
   location: string;
   @Prop()
   eventStatus: string;
+  @Prop()
+  currentSlice: string;
+  @Prop()
+  sliceStatus: string;
+  @Prop()
+  maxDevices: number;
+  @Prop()
+  maxConnections: number;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
