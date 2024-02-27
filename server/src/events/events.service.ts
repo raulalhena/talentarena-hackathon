@@ -103,7 +103,7 @@ export class EventsService {
     };
   }
 
-  async deactivateSclie() {
+  async deactivateSclice() {
     return '';
   }
 
