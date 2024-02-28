@@ -1,43 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import EventCard from '../EventCard/EventCard';
 import './EventList.css';
 import { Link } from 'react-router-dom';
 
-const events = [
-  {
-    name: 'ev1',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  },
-  {
-    name: 'ev2',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  },
-  {
-    name: 'ev1',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  },
-  {
-    name: 'ev2',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  },
-  {
-    name: 'ev1',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  },
-  {
-    name: 'ev2',
-    startedAt: '2024-28-02 14:15:00',
-    location: 'Spain'
-  }
-
-]
-
 function EventList() {
+
+  const [ events, setEvents ] = useState([{}]);
+
+  useEffect(() => {
+    const getAllEvents = async () => {
+      const resp = await fetch('http://localhost:3000/events');
+      setEvents(await resp.json());
+    };
+
+    getAllEvents();
+  }, []);
+
   return (
     <div className='event-list-container'>
       <h1>Events</h1>

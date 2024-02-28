@@ -6,7 +6,7 @@ import { EventCardInterface } from '../../interfaces/EventCardInterface';
 function EventCard({ event }) {
 
   return (
-    <Link to="/eventInfo" >
+    <Link to="/eventInfo" state={{ eventId: event._id }}>
       <div  className='card'>
         <h1>{ event.name }</h1>
         <div> { event.startedAt } </div>
