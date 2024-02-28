@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "65df0ba38e59cd88f37729b4"
+  },
+  "users": [
+    {
+      "$oid": "65df0b6a8e59cd88f37729af"
+    },
+    {
+      "$oid": "65df0b7b8e59cd88f37729b1"
+    }
+  ],
+  "name": "Sample Event",
+  "startedAt": {
+    "$date": {
+      "$numberLong": "1709114400000"
+    }
+  },
+  "finishedAt": {
+    "$date": {
+      "$numberLong": "1709143200000"
+    }
+  },
+  "location": "Spain",
+  "eventStatus": "Active",
+  "currentSlice": "SLICE_1",
+  "sliceStatus": "AVAILABLE",
+  "maxDevices": 100,
+  "maxConnections": 200,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df12b2faeccfddd70bbebb"
+  },
+  "users": [
+    {
+      "$oid": "65df124dfaeccfddd70bbeb0"
+    },
+    {
+      "$oid": "65df1251faeccfddd70bbeb2"
+    },
+    {
+      "$oid": "65df1254faeccfddd70bbeb4"
+    },
+    {
+      "$oid": "65df1258faeccfddd70bbeb6"
+    }
+  ],
+  "name": "MWC Event",
+  "startedAt": {
+    "$date": {
+      "$numberLong": "1709114400000"
+    }
+  },
+  "finishedAt": {
+    "$date": {
+      "$numberLong": "1709143200000"
+    }
+  },
+  "location": "Barcelona - Spain",
+  "eventStatus": "Active",
+  "currentSlice": "SLICE_1",
+  "sliceStatus": "AVAILABLE",
+  "maxDevices": 100,
+  "maxConnections": 200,
+  "__v": 0
+}]
