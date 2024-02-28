@@ -10,6 +10,9 @@ export class Device {
   latitude: string;
   longitude: string;
   networkAccessIdentifier: string;
+  publicAddress: string;
+  privateAddress: string;
+  publicPort: number;
   currentProfile: string;
 }
 

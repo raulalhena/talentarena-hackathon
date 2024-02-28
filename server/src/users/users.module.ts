@@ -3,6 +3,8 @@ import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './entities/user.entity';
+import { EventsService } from 'src/events/events.service';
+import { EventSchema } from 'src/events/entities/event.entity';
 
 @Module({
   imports: [
@@ -12,8 +14,15 @@ import { User, UserSchema } from './entities/user.entity';
         schema: UserSchema,
       },
     ]),
+    MongooseModule.forFeature([
+      {
+        name: Event.name,
+        schema: EventSchema,
+      },
+    ]),
   ],
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, EventsService],
+  exports: [EventsService],
 })
-export class UsersModule {}
+export class UsersModule { }

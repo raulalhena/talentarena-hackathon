@@ -120,7 +120,7 @@ export class EventsService {
         sst: 0,
         sd: {},
       },
-      deviceStatus: 'attached',
+      deviceStatus: 'ATTACHED',
     };
   }
 
