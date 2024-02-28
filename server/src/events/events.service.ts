@@ -20,7 +20,7 @@ export class EventsService {
     @InjectModel(Event.name) private eventModel: Model<Event>,
     @Inject(forwardRef(() => UsersService))
     private readonly usersService: UsersService,
-  ) { }
+  ) {}
 
   async findAll() {
     try {
@@ -60,10 +60,14 @@ export class EventsService {
         createEventDto.maxDevices,
       );
 
-      if (createdSlice) {
-        createEventDto.currentSlice = createdSlice.name;
-        createEventDto.sliceStatus = createdSlice.state;
-      }
+      // if (createdSlice) {
+      // createEventDto.currentSlice = createdSlice.name;
+      // createEventDto.sliceStatus = createdSlice.state;
+      // } else {
+      createEventDto.currentSlice = 'SLICE_1';
+      createEventDto.sliceStatus = 'AVAILABLE';
+      console.log('no');
+      // }
 
       const createdEvent = await this.eventModel.create(createEventDto);
 
@@ -142,7 +146,8 @@ export class EventsService {
       );
 
       const result = await resp;
-      return result.json();
+      // return result.json();
+      return result;
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }
@@ -208,7 +213,7 @@ export class EventsService {
     };
   }
 
-  async deactivateSclice() {
+  async deactivateSlice() {
     return '';
   }
 
