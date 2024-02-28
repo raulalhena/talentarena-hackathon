@@ -66,7 +66,6 @@ export class EventsService {
       // } else {
       createEventDto.currentSlice = 'SLICE_1';
       createEventDto.sliceStatus = 'AVAILABLE';
-      console.log('no');
       // }
 
       const createdEvent = await this.eventModel.create(createEventDto);
