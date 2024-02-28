@@ -44,11 +44,13 @@ function EventInfo() {
   const { eventId } = location.state;
   const [ event, setEvent ] = useState({});
   const [ allEvents, setAllEvents ] = useState([{}]);
+  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => {
     const getEventData = async () => {
       const resp = await fetch(`http://localhost:3000/events/${eventId}`);
       setEvent(await resp.json());
+      setIsLoading(false);
     }
 
     getEventData();
@@ -56,6 +58,7 @@ function EventInfo() {
     const getAllEvents = async () => {
       const resp = await fetch('http://localhost:3000/events');
       setAllEvents(await resp.json());
+      setIsLoading(false);
     }
 
     getAllEvents();
@@ -71,7 +74,12 @@ function EventInfo() {
             <EventsSideBar events={allEvents}/>
           </div>
           <div style={{ width: '80%', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center',  }}>
-            <Map />
+            {
+              !isLoading ?
+                <Map event={event}/>
+                :
+                <p>Loading...</p>
+            }
             <div style={eventDashboardContainer}>
               <EventDashboard event={event}/>
             </div>

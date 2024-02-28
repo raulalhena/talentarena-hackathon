@@ -2,19 +2,22 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import './Map.css';
 import 'leaflet/dist/leaflet.css';
 
-function Map() {
+function Map({ event }) {
+
+  console.log('in map ', event)
+
   return (
     <div className='map-container'>
-      <MapContainer id='map' center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </MapContainer>
+        <MapContainer id='map' center={[event.users[0].devices[0].latitude,event.users[0].devices[0].longitude]} zoom={13} scrollWheelZoom={false}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[event.users[0].devices[0].latitude,event.users[0].devices[0].longitude]}>
+            <Popup>
+              {event.name}
+            </Popup>
+          </Marker>
+        </MapContainer>
     </div>
   )
 }
