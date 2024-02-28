@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function EventsSideBar() {
+function EventsSideBar({ getEventData }) {
+
+  const navigate = useNavigate();
 
   const [ events, setEvents ] = useState([{}]);
 
@@ -14,13 +16,18 @@ function EventsSideBar() {
     getAllEvents();
   }, []);
 
+  const handleClick = (e: HTMLAnchorElement) => {
+    e.preventDefault();
+    getEventData(e.target.id)
+  }
+
 
   return (
     <div style={{ marginTop: '45px'}}>
       { 
         events.map((event, i) => (
           <div key={i}>
-            <Link reloadDocument key={i} to='/eventInfo' state={{ eventId: event._id }}>{ event.name } <span style={{ 
+            <a href="#" id={event._id} onClick={handleClick}>{ event.name } <span style={{ 
               height: '10px',
               width: '10px',
               backgroundColor: 'green',
@@ -28,7 +35,7 @@ function EventsSideBar() {
               display: 'inline-block',
               }}>
               </span>
-            </Link>
+            </a>
           </div>
         ))
       }

@@ -3,6 +3,8 @@ import EventCard from '../EventCard/EventCard';
 import './EventList.css';
 import { Link } from 'react-router-dom';
 
+
+
 function EventList() {
 
   const [ events, setEvents ] = useState([{}]);
@@ -11,7 +13,7 @@ function EventList() {
     const getAllEvents = async () => {
       const resp = await fetch('http://localhost:3000/events');
       setEvents(await resp.json());
-    };
+    }
 
     getAllEvents();
   }, []);
