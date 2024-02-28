@@ -1,6 +1,6 @@
 import React from 'react'
-import EventList from '../components/EventList/EventList';
-import Navbar from '../components/Navbar/Navbar';
+import EventList from '../../components/EventList/EventList';
+import Navbar from '../../components/Navbar/Navbar';
 
 function Home() {
   return (
