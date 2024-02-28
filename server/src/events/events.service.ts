@@ -4,11 +4,80 @@ import { UpdateEventDto } from './dto/update-event.dto';
 import { LocationRetrieval } from './dto/locationretrieval.dto';
 import { VerifyLocationDto } from './dto/verify-location.dto';
 import { CreateSessionDto } from './dto/create-session.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model, isValidObjectId } from 'mongoose';
 
 @Injectable()
 export class EventsService {
+  constructor(@InjectModel(Event.name) private eventModel: Model<Event>) {}
+
+  async findAll() {
+    try {
+      return await this.eventModel.find();
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async findOne(id: string) {
+    try {
+      if (!isValidObjectId(id)) {
+        return { statusCode: 400, message: 'Invalid ObjectId' };
+      }
+      const foundEvent = await this.eventModel.findById(id);
+      return foundEvent;
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
   async create(createEventDto: CreateEventDto) {
-    return 'create';
+    try {
+      const createdEvent = await this.eventModel.create(createEventDto);
+      return (await this.eventModel.findById(createdEvent.id)).populate(
+        'users',
+      );
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async update(id: string, updateEventDto: UpdateEventDto) {
+    try {
+      if (!isValidObjectId(id)) {
+        return { statusCode: 400, message: 'Invalid ObjectId' };
+      }
+
+      const updatedEvent = await this.eventModel.findOneAndUpdate(
+        { _id: id },
+        updateEventDto,
+      );
+      return updatedEvent;
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async remove(id: string) {
+    try {
+      if (!isValidObjectId(id)) {
+        return { statusCode: 400, message: 'Invalid ObjectId' };
+      }
+
+      const deletedEvent = await this.eventModel.findByIdAndDelete({ _id: id });
+      return deletedEvent;
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async removeAll() {
+    try {
+      const deletedEvents = await this.eventModel.deleteMany();
+      return deletedEvents;
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
   }
 
   async createSlice() {
@@ -51,7 +120,7 @@ export class EventsService {
         sst: 0,
         sd: {},
       },
-      deviceStatus: 'attached',
+      deviceStatus: 'ATTACHED',
     };
   }
 
@@ -223,21 +292,5 @@ export class EventsService {
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
-  }
-
-  findAll() {
-    return `This action returns all events`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} event`;
-  }
-
-  update(id: number, updateEventDto: UpdateEventDto) {
-    return `This action updates a #${id} event`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} event`;
   }
 }
