@@ -9,7 +9,7 @@ import { Model, isValidObjectId } from 'mongoose';
 
 @Injectable()
 export class EventsService {
-  constructor(@InjectModel(Event.name) private eventModel: Model<Event>) {}
+  constructor(@InjectModel(Event.name) private eventModel: Model<Event>) { }
 
   async findAll() {
     try {
@@ -220,7 +220,7 @@ export class EventsService {
       );
 
       const result = await resp.json();
-      console.log(result);
+      return result;
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
     }
