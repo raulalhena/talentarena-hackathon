@@ -14,19 +14,19 @@ const eventInfoContainer = {
 };
 
 const eventsLateralList = { 
-  width: '20%', 
+  width: '15%', 
   height: '100%', 
   display: 'flex', 
   flexDirection: 'column', 
   color: 'black', 
-  border: '1px solid red', 
+  // border: '1px solid red', 
   alignItems: 'center', 
   gap: '5px' 
 };
 
 const eventDashboardContainer = {
   marginTop: '0px',
-  border: '1px solid purple',
+  // border: '1px solid purple',
   width: '100%', 
   height: '40%',
   marginBottom: '0px',
