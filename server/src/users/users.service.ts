@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  forwardRef,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Model, isValidObjectId } from 'mongoose';
@@ -13,6 +19,7 @@ import { VerifyLocationDto } from 'src/events/dto/verify-location.dto';
 export class UsersService {
   constructor(
     @InjectModel(User.name) private userModel: Model<User>,
+    @Inject(forwardRef(() => EventsService))
     private readonly eventsService: EventsService,
   ) { }
 
@@ -106,25 +113,52 @@ export class UsersService {
 
       for (const device of foundUser.devices as Device[]) {
         if (device.isActive) {
-          const locationRetrieval: LocationRetrieval = {
-            device: {
-              networkAccessIdentifier: device.networkAccessIdentifier,
-              ipv4Address: {
-                publicAddress: device.publicAddress,
-                privateAddress: device.privateAddress,
-                publicPort: device.publicPort,
+          let isLocationVerified = false;
+          if (device.longitude !== '' && device.latitude !== '') {
+            const verifyLocation: VerifyLocationDto = {
+              device: {
+                networkAccessIdentifier: device.networkAccessIdentifier,
               },
-            },
-            maxAge: 60,
-          };
-          const locationResponse =
-            await this.eventsService.locationRetrieval(locationRetrieval);
+              area: {
+                areaType: 'Circle',
+                center: {
+                  latitude: device.latitude,
+                  longitude: device.longitude,
+                },
+                radius: 1000,
+              },
+            };
 
-          device.latitude = locationResponse.area.center.latitude;
-          device.longitude = locationResponse.area.center.longitude;
-          device.country = locationResponse.area.center.country;
+            const verifiedLocation =
+              await this.eventsService.verifyLocation(verifyLocation);
+
+            isLocationVerified = verifiedLocation.verificationResult == 'TRUE';
+          }
+
+          if (!isLocationVerified) {
+            console.log('Retrieving location');
+            const locationRetrieval: LocationRetrieval = {
+              device: {
+                networkAccessIdentifier: device.networkAccessIdentifier,
+                ipv4Address: {
+                  publicAddress: device.publicAddress,
+                  privateAddress: device.privateAddress,
+                  publicPort: device.publicPort,
+                },
+              },
+              maxAge: 60,
+            };
+            const locationResponse =
+              await this.eventsService.locationRetrieval(locationRetrieval);
+
+            device.latitude = locationResponse.area.center.latitude;
+            device.longitude = locationResponse.area.center.longitude;
+            device.country = locationResponse.area.center.country;
+          }
         }
       }
+
+      await this.update(foundUser.id, foundUser as UpdateUserDto);
 
       return foundUser;
     } catch (e) {

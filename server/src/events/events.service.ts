@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  forwardRef,
+} from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { LocationRetrieval } from './dto/locationretrieval.dto';
@@ -6,10 +12,15 @@ import { VerifyLocationDto } from './dto/verify-location.dto';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, isValidObjectId } from 'mongoose';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class EventsService {
-  constructor(@InjectModel(Event.name) private eventModel: Model<Event>) { }
+  constructor(
+    @InjectModel(Event.name) private eventModel: Model<Event>,
+    @Inject(forwardRef(() => UsersService))
+    private readonly usersService: UsersService,
+  ) { }
 
   async findAll() {
     try {
@@ -25,7 +36,18 @@ export class EventsService {
         return { statusCode: 400, message: 'Invalid ObjectId' };
       }
       const foundEvent = await this.eventModel.findById(id);
-      return foundEvent;
+
+      if (foundEvent) {
+        const updatedUsersPromises = foundEvent['users'].flatMap(
+          async (foundEvent) => {
+            await this.usersService.findOne(foundEvent.toString());
+          },
+        );
+
+        await Promise.all(updatedUsersPromises);
+      }
+
+      return await foundEvent.populate('users');
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }
