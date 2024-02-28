@@ -25,4 +25,4 @@ import { EventSchema } from 'src/events/entities/event.entity';
   providers: [UsersService, EventsService],
   exports: [EventsService],
 })
-export class UsersModule { }
+export class UsersModule {}

@@ -7,6 +7,7 @@ import { User, Device } from './schemas/user.schema';
 import { randomUUID } from 'crypto';
 import { EventsService } from 'src/events/events.service';
 import { LocationRetrieval } from 'src/events/dto/locationretrieval.dto';
+import { VerifyLocationDto } from 'src/events/dto/verify-location.dto';
 
 @Injectable()
 export class UsersService {
@@ -36,27 +37,59 @@ export class UsersService {
         (foundUser.devices as Device[])
           .filter((device) => device.isActive)
           .map(async (device) => {
-            const locationRetrieval: LocationRetrieval = {
-              device: {
-                networkAccessIdentifier: device.networkAccessIdentifier,
-                ipv4Address: {
-                  publicAddress: device.publicAddress,
-                  privateAddress: device.privateAddress,
-                  publicPort: device.publicPort,
+            let isLocationVerified = false;
+            if (device.longitude !== '' && device.latitude !== '') {
+              const verifyLocation: VerifyLocationDto = {
+                device: {
+                  networkAccessIdentifier: device.networkAccessIdentifier,
                 },
-              },
-              maxAge: 60,
-            };
-            const locationResponse =
-              await this.eventsService.locationRetrieval(locationRetrieval);
+                area: {
+                  areaType: 'Circle',
+                  center: {
+                    latitude: device.latitude,
+                    longitude: device.longitude,
+                  },
+                  radius: 1000,
+                },
+              };
 
-            device.latitude = locationResponse.area.center.latitude;
-            device.longitude = locationResponse.area.center.longitude;
-            device.country = locationResponse.area.center.country;
+              const verifiedLocation =
+                await this.eventsService.verifyLocation(verifyLocation);
+
+              isLocationVerified =
+                verifiedLocation.verificationResult == 'TRUE';
+            }
+
+            if (!isLocationVerified) {
+              console.log('Retrieving location');
+              const locationRetrieval: LocationRetrieval = {
+                device: {
+                  networkAccessIdentifier: device.networkAccessIdentifier,
+                  ipv4Address: {
+                    publicAddress: device.publicAddress,
+                    privateAddress: device.privateAddress,
+                    publicPort: device.publicPort,
+                  },
+                },
+                maxAge: 60,
+              };
+              const locationResponse =
+                await this.eventsService.locationRetrieval(locationRetrieval);
+
+              device.latitude = locationResponse.area.center.latitude;
+              device.longitude = locationResponse.area.center.longitude;
+              device.country = locationResponse.area.center.country;
+            }
           }),
       );
 
       await Promise.all(updateDevicePromises);
+
+      const updatedUsersPromises = foundUsers.flatMap(async (foundUser) => {
+        await this.update(foundUser.id, foundUser as UpdateUserDto);
+      });
+
+      await Promise.all(updatedUsersPromises);
 
       return foundUsers;
     } catch (e) {
