@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Model, isValidObjectId } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { User, Device } from './entities/user.entity';
+import { User, Device } from './schemas/user.schema';
 import { randomUUID } from 'crypto';
 import { EventsService } from 'src/events/events.service';
 import { LocationRetrieval } from 'src/events/dto/locationretrieval.dto';
@@ -13,7 +13,7 @@ export class UsersService {
   constructor(
     @InjectModel(User.name) private userModel: Model<User>,
     private readonly eventsService: EventsService,
-  ) {}
+  ) { }
 
   async create(createUserDto: CreateUserDto) {
     try {
