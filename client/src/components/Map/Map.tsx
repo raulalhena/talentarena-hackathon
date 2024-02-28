@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './Map.css'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import { useEffect,useState } from 'react'
 
 function Map({ event }) {
   var greenIcon = new L.Icon({
@@ -15,6 +16,19 @@ function Map({ event }) {
     shadowSize: [41, 41]
   })
 
+  const [ map, setMap ] = useState(undefined);
+
+  const fly = () => {
+    if(map){
+      map.flyTo([event.users[0].devices[0].latitude,event.users[0].devices[0].longitude]);
+      console.log('fly')
+    }
+  }
+
+  useEffect(() => {
+    fly();
+  },[event]);
+
   return (
     <div className="map-container">
       <MapContainer
@@ -24,6 +38,7 @@ function Map({ event }) {
           event.users[0].devices[0].longitude
         ]}
         zoom={13}
+        ref={setMap}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
