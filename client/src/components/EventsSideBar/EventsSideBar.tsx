@@ -3,19 +3,14 @@ import { useEffect } from "react";
 
 function EventsSideBar({ events }) {
 
-  useEffect(() => {
-    setTimeout(() => {
-
-    }, 3000);
-  }, []);
-  
+  // console.log(events)
 
   return (
     <div style={{ marginTop: '45px'}}>
       { 
         events.map((event, i) => (
-          <div>
-            <Link key={i} to='/eventInfo' state={{ eventId: event._id }}>{ event.name } <span style={{ 
+          <div key={i}>
+            <Link reloadDocument key={i} to='/eventInfo' state={{ eventId: event._id }}>{ event.name } <span style={{ 
               height: '10px',
               width: '10px',
               backgroundColor: 'green',
@@ -23,6 +18,7 @@ function EventsSideBar({ events }) {
               display: 'inline-block',
               }}>
               </span>
+              <p>{event._id}</p>
             </Link>
           </div>
         ))

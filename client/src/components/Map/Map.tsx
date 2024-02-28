@@ -1,10 +1,9 @@
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import './Map.css';
 import 'leaflet/dist/leaflet.css';
+import { useState } from 'react';
 
 function Map({ event }) {
-
-  console.log('in map ', event)
 
   return (
     <div className='map-container'>

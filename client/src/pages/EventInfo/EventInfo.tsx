@@ -46,6 +46,8 @@ function EventInfo() {
   const [ allEvents, setAllEvents ] = useState([{}]);
   const [ isLoading, setIsLoading ] = useState(true);
 
+  console.log('id eve', eventId)
+
   useEffect(() => {
     const getEventData = async () => {
       const resp = await fetch(`http://localhost:3000/events/${eventId}`);
@@ -54,7 +56,9 @@ function EventInfo() {
     }
 
     getEventData();
+  }, []);
 
+  useEffect(() => {
     const getAllEvents = async () => {
       const resp = await fetch('http://localhost:3000/events');
       setAllEvents(await resp.json());
@@ -63,6 +67,8 @@ function EventInfo() {
 
     getAllEvents();
   }, []);
+
+  console.log('eve ', event.name)
 
   return (
     <div>
@@ -74,7 +80,7 @@ function EventInfo() {
             <EventsSideBar events={allEvents}/>
           </div>
           <div style={{ width: '80%', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center',  }}>
-            {
+            { 
               !isLoading ?
                 <Map event={event}/>
                 :
