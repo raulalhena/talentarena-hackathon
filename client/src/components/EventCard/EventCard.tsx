@@ -6,9 +6,7 @@ import { EventCardInterface } from '../../interfaces/EventCardInterface';
 function EventCard({ event }) {
 
   const navigate = useNavigate();
-
-  console.log('eve in card', event._id)
-
+  
   const handleClick = (e: HTMLAnchorElement) => {
     e.preventDefault();
     navigate('eventInfo', { state: { eventId: event._id }})

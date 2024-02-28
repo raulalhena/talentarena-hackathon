@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './EventForm.css';
+import DateInput from '../DateInput/DateInput';
 
 interface FormData {
   name: string;
@@ -12,54 +13,45 @@ function EventForm() {
 
   const [ formData, setFormData ] = useState<FormData>({
     name:'',
-    slice: '',
-    maxConnections: 0,
-    maxDevices: 0
+    maxConnections: '',
+    maxDevices: '',
+    startedAt: '',
+    location: ''
   });
   const [ name, setName ] = useState('');
   const [ slice, setSlice ] = useState('');
   const [ maxConnections, setMaxConnections ] = useState(0);
   const [ maxDevices, setMaxDevices ] = useState(0);
-
-  useEffect(() => {
-    const getForm = async () => {
-      const resp = await fetch('http://localhost:3000/event/1');
-      const result = await resp.json();
-
-      setFormData({
-        ...result
-      });
-    }
-  });
+  const [ startedAt, setStartedAt ] = useState(null);
+  const [ location, setLocation ] = useState('');
 
   const saveForm = async () => {
-    const resp = await fetch('http://localhost:3000/event',{
+    const resp = await fetch('http://localhost:3000/events',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({
-        name: name,
-        slice: slice,
-        maxConnections: maxConnections,
-        maxDevices: maxDevices
-      })
+      body: JSON.stringify(formData)
     })
     const result = await resp.json();
-
-
   }
 
   const handleClick = (e: HTMLButtonElement) => {
     e.preventDefault();
 
     saveForm();
+    setFormData({
+      name:'',
+      maxConnections: '',
+      maxDevices: '',
+      startedAt: '',
+      location: ''
+    })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = event.target.id;
     const value = event.target.value;
-
     setFormData({
       ...formData,
       [id]: value
@@ -70,15 +62,11 @@ function EventForm() {
     <div className='event-form-container'>
       <h1>Event Form</h1>
       <div className='event-form'>
-        <input type="text" id="name" name="name" placeholder='Event name'/>
-        <select id="slice" className='slice-select'>
-          <option default>Slice Option</option>
-          <option name="option1" value="option1">Option1</option>
-          <option name="option2" value="option2">Option2</option>
-          <option name="option3" value="option3">Option3</option>
-        </select>
-        <input type="text" id="maxConnections" name="maxConnections" placeholder='Max. Connections'/>
-        <input type="text" id="maxDevices" name="maxDevices" placeholder='Max. Devices' />
+        <input type="text" value={formData.name} id="name" name="name" placeholder='Event name' onChange={handleChange}/>
+        <input type="text" value={formData.maxConnections} id="maxConnections" name="maxConnections" placeholder='Max. Connections' onChange={handleChange}/>
+        <input type="text" value={formData.maxDevices} id="maxDevices" name="maxDevices" placeholder='Max. Devices' onChange={handleChange}/>
+        <input type="text" value={formData.location} id="location" name="location" placeholder='Country' onChange={handleChange}/>
+        <DateInput handleChange={handleChange} value={formData.startedAt}/>
         <button onClick={handleClick}>Save</button>
       </div>
     </div>

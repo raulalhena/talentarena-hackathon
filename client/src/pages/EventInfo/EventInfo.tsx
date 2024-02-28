@@ -41,9 +41,7 @@ const eventDashboardContainer = {
 function EventInfo() {
 
   const { state } = useLocation();
-  console.log(state)
   const { eventId } = state;
-  console.log('ID ', eventId)
   const [ event, setEvent ] = useState({});
   const [ isLoading, setIsLoading ] = useState(true);
 
