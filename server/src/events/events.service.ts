@@ -55,7 +55,18 @@ export class EventsService {
 
   async create(createEventDto: CreateEventDto) {
     try {
+      const createdSlice = await this.createSlice(
+        createEventDto.maxConnections,
+        createEventDto.maxDevices,
+      );
+
+      if (createdSlice) {
+        createEventDto.currentSlice = createdSlice.name;
+        createEventDto.sliceStatus = createdSlice.state;
+      }
+
       const createdEvent = await this.eventModel.create(createEventDto);
+
       return (await this.eventModel.findById(createdEvent.id)).populate(
         'users',
       );
@@ -102,7 +113,7 @@ export class EventsService {
     }
   }
 
-  async createSlice() {
+  async createSlice(maxDataConnections: number, maxDevices: number) {
     try {
       const resp = await fetch(
         'https://network-slicing.p-eu.rapidapi.com/slices',
@@ -124,12 +135,14 @@ export class EventsService {
               service_type: 'eMBB',
               differentiator: '123456',
             },
+            maxDataConnections: maxDataConnections,
+            maxDevices: maxDevices,
           }),
         },
       );
 
       const result = await resp;
-      return result;
+      return result.json();
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }

@@ -21,7 +21,7 @@ export class UsersService {
     @InjectModel(User.name) private userModel: Model<User>,
     @Inject(forwardRef(() => EventsService))
     private readonly eventsService: EventsService,
-  ) { }
+  ) {}
 
   async create(createUserDto: CreateUserDto) {
     try {
