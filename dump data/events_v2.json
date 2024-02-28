@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "65df0ba38e59cd88f37729b4"
+  },
+  "users": [
+    {
+      "$oid": "65df0b6a8e59cd88f37729af"
+    },
+    {
+      "$oid": "65df0b7b8e59cd88f37729b1"
+    }
+  ],
+  "name": "Budapest Nokia",
+  "startedAt": {
+    "$date": {
+      "$numberLong": "1716890400000"
+    }
+  },
+  "finishedAt": {
+    "$date": {
+      "$numberLong": "1717005600000"
+    }
+  },
+  "location": "Spain",
+  "eventStatus": "Active",
+  "currentSlice": "SLICE_1",
+  "sliceStatus": "AVAILABLE",
+  "maxDevices": 100,
+  "maxConnections": 200,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df12b2faeccfddd70bbebb"
+  },
+  "users": [
+    {
+      "$oid": "65df3811f8c74305aca636cb"
+    },
+    {
+      "$oid": "65df3811f8c74305aca636cc"
+    },
+    {
+      "$oid": "65df3811f8c74305aca636cd"
+    },
+    {
+      "$oid": "65df3811f8c74305aca636ce"
+    }
+  ],
+  "name": "La Velada del Año",
+  "startedAt": {
+    "$date": {
+      "$numberLong": "1716890400000"
+    }
+  },
+  "finishedAt": {
+    "$date": {
+      "$numberLong": "1717005600000"
+    }
+  },
+  "location": "Barcelona - Spain",
+  "eventStatus": "Active",
+  "currentSlice": "SLICE_1",
+  "sliceStatus": "AVAILABLE",
+  "maxDevices": 100,
+  "maxConnections": 200,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df0ba38e59cd88f37725b4"
+  },
+  "users": [
+    {
+      "$oid": "65df0b6a8e59cd88f37729af"
+    },
+    {
+      "$oid": "65df0b7b8e59cd88f37729b1"
+    },
+    {
+      "$oid": "65df124dfaeccfddd70bbeb0"
+    },
+    {
+      "$oid": "65df1251faeccfddd70bbeb2"
+    },
+    {
+      "$oid": "65df1254faeccfddd70bbeb4"
+    },
+    {
+      "$oid": "65df1258faeccfddd70bbeb6"
+    },
+    {
+      "$oid": "65df125bfaeccfddd70bbeb8"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636a9"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636aa"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636ab"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636ac"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636ad"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636ae"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636af"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b0"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b1"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b2"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b3"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b4"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b5"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b6"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b7"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b8"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636b9"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636ba"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636bb"
+    },
+    {
+      "$oid": "65df3277f8c74305aca636bc"
+    }
+  ],
+  "name": "MWC",
+  "startedAt": {
+    "$date": {
+      "$numberLong": "1708941600000"
+    }
+  },
+  "finishedAt": {
+    "$date": {
+      "$numberLong": "1709402400000"
+    }
+  },
+  "location": "Barcelona - Spain",
+  "eventStatus": "Active",
+  "currentSlice": "SLICE_1",
+  "sliceStatus": "AVAILABLE",
+  "maxDevices": 100,
+  "maxConnections": 200,
+  "__v": 0
+}]

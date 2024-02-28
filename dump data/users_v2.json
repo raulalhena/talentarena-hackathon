@@ -1,0 +1,595 @@
+[{
+  "_id": {
+    "$oid": "65df0b6a8e59cd88f37729af"
+  },
+  "name": "eduardferre",
+  "devices": [
+    {
+      "isActive": true,
+      "latitude": 47.48627616952785,
+      "longitude": 19.07915612501993,
+      "networkAccessIdentifier": "eduard1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "82ca4a66-7b3c-413a-bfb7-4b432c271826"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df0b7b8e59cd88f37729b1"
+  },
+  "name": "raul",
+  "devices": [
+    {
+      "isActive": true,
+      "latitude": 47.48627616952785,
+      "longitude": 19.07915612501993,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "29ebea85-d5ea-482b-b83a-de0bec124003"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df124dfaeccfddd70bbeb0"
+  },
+  "name": "user1",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.358,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "56b07f27-6ac7-4366-9177-4fd4543c3699"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df1251faeccfddd70bbeb2"
+  },
+  "name": "user2",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.355,
+      "longitude": 2.127,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_L_UPLINK_L",
+      "deviceId": "6d2832d0-14e4-4f9d-afae-d05a30c4ef0d"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df1254faeccfddd70bbeb4"
+  },
+  "name": "user3",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.357,
+      "longitude": 2.123,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_S_UPLINK_S",
+      "deviceId": "222c909a-6ce6-4e3a-a714-0109e529beea"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df1258faeccfddd70bbeb6"
+  },
+  "name": "user4",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.357,
+      "longitude": 2.13,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_S_UPLINK_M",
+      "deviceId": "b9c1d128-c813-4dac-a9cd-bb7831f73537"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df125bfaeccfddd70bbeb8"
+  },
+  "name": "user5",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.354,
+      "longitude": 2.124,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_L_UPLINK_M",
+      "deviceId": "acb7d628-368e-4172-bcd8-156eaf4b9d57"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636a9"
+  },
+  "name": "user1",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.359,
+      "longitude": 2.125,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "56b07f27-6ac7-4366-9177-4fd4543c3699"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636aa"
+  },
+  "name": "user2",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.36,
+      "longitude": 2.124,
+      "networkAccessIdentifier": "raul2@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "c41d7d0a-8d21-4d5f-9c33-73efce226740"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636ab"
+  },
+  "name": "user3",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3585,
+      "longitude": 2.1265,
+      "networkAccessIdentifier": "raul3@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "9e37783a-73a9-4ad4-a5e6-bda282e24a7e"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636ac"
+  },
+  "name": "user4",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3575,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul4@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "d8918be0-ae4d-4e16-85c9-31a501ab3e0d"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636ad"
+  },
+  "name": "user5",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.358,
+      "longitude": 2.127,
+      "networkAccessIdentifier": "raul5@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "c4f35a8f-7bea-4d90-9f55-780d6a5240f4"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636ae"
+  },
+  "name": "user6",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.357,
+      "longitude": 2.1255,
+      "networkAccessIdentifier": "raul6@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "c6a1f6db-41f7-4f3e-8900-4658a8935a34"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636af"
+  },
+  "name": "user7",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3575,
+      "longitude": 2.1265,
+      "networkAccessIdentifier": "raul7@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "d2f5f67a-525a-41e3-b65b-0e625a628dbe"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b0"
+  },
+  "name": "user8",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.357,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul8@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "f2cd2f9e-8f1a-4f79-b7cf-ec34ff3e71a2"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b1"
+  },
+  "name": "user9",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.358,
+      "longitude": 2.127,
+      "networkAccessIdentifier": "raul9@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "3c8d5ee7-bd3a-46d2-b081-2b166a930be6"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b2"
+  },
+  "name": "user10",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.358,
+      "longitude": 2.127,
+      "networkAccessIdentifier": "raul10@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "93c16c5b-7558-45e8-97a2-64e5cbe2de8c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b3"
+  },
+  "name": "user11",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3585,
+      "longitude": 2.1275,
+      "networkAccessIdentifier": "raul11@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "1f7922d2-bf8e-4c07-831c-28f6e8b48b6e"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b4"
+  },
+  "name": "user12",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3585,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul12@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "b2eabfb4-0ecf-49aa-932b-ba947d52c18c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b5"
+  },
+  "name": "user13",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.359,
+      "longitude": 2.1275,
+      "networkAccessIdentifier": "raul13@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "60a5737a-2a38-4bb4-b429-9a09a0e1f12a"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b6"
+  },
+  "name": "user14",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.359,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul14@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "c4176794-9ac8-47ea-98b4-62ef1151a202"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b7"
+  },
+  "name": "user15",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3595,
+      "longitude": 2.125,
+      "networkAccessIdentifier": "raul15@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "f1460ac2-5f0b-43f4-91f8-cbfcdf8eb2c9"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b8"
+  },
+  "name": "user16",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3595,
+      "longitude": 2.1275,
+      "networkAccessIdentifier": "raul16@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "0e3fe3a0-485b-4b8b-8a7e-45a3c0c26a5f"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636b9"
+  },
+  "name": "user17",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3595,
+      "longitude": 2.1265,
+      "networkAccessIdentifier": "raul17@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "ea7d823c-b716-4da1-9c5a-d1c4585f5ae3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636ba"
+  },
+  "name": "user18",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.359,
+      "longitude": 2.1255,
+      "networkAccessIdentifier": "raul18@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "3f9e0157-28cb-4b4c-9a19-97ef9b2e9d3b"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636bb"
+  },
+  "name": "user19",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.359,
+      "longitude": 2.127,
+      "networkAccessIdentifier": "raul19@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "b14795aa-38e3-44fb-9a11-2e5bf5fc35b5"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3277f8c74305aca636bc"
+  },
+  "name": "user20",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 41.3595,
+      "longitude": 2.126,
+      "networkAccessIdentifier": "raul20@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "4e8b1a41-8aeb-495a-8a41-ba862547847c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3811f8c74305aca636cb"
+  },
+  "name": "user1",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 40.4531,
+      "longitude": -3.6884,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_M_UPLINK_S",
+      "deviceId": "56b07f27-6ac7-4366-9177-4fd4543c3699"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3811f8c74305aca636cc"
+  },
+  "name": "user2",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 40.4535,
+      "longitude": -3.688,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_L_UPLINK_L",
+      "deviceId": "6d2832d0-14e4-4f9d-afae-d05a30c4ef0d"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3811f8c74305aca636cd"
+  },
+  "name": "user3",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 40.4528,
+      "longitude": -3.6884,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_S_UPLINK_S",
+      "deviceId": "222c909a-6ce6-4e3a-a714-0109e529beea"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "65df3811f8c74305aca636ce"
+  },
+  "name": "user4",
+  "devices": [
+    {
+      "isActive": true,
+      "country": "Spain",
+      "latitude": 40.4533,
+      "longitude": -3.6886,
+      "networkAccessIdentifier": "raul1@testcsp.net",
+      "publicAddress": "123.45.67.89",
+      "privateAddress": "192.168.1.100",
+      "publicPort": 8080,
+      "currentProfile": "DOWNLINK_S_UPLINK_M",
+      "deviceId": "b9c1d128-c813-4dac-a9cd-bb7831f73537"
+    }
+  ]
+}]

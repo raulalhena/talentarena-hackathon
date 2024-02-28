@@ -14,7 +14,6 @@ function EventDashboard({ event }) {
     });
     const result = await resp.json();
 
-    set
   }
 
   const handleClick = (e: HTMLButtonElement) => {
