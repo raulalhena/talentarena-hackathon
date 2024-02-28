@@ -43,7 +43,6 @@ function EventInfo() {
   const location = useLocation();
   const { eventId } = location.state;
   const [ event, setEvent ] = useState({});
-  const [ allEvents, setAllEvents ] = useState([{}]);
   const [ isLoading, setIsLoading ] = useState(true);
 
   console.log('id eve', eventId)
@@ -58,16 +57,6 @@ function EventInfo() {
     getEventData();
   }, []);
 
-  useEffect(() => {
-    const getAllEvents = async () => {
-      const resp = await fetch('http://localhost:3000/events');
-      setAllEvents(await resp.json());
-      setIsLoading(false);
-    }
-
-    getAllEvents();
-  }, []);
-
   console.log('eve ', event.name)
 
   return (
@@ -77,7 +66,7 @@ function EventInfo() {
         <h1>Event Information</h1>
         <div style={eventInfoContainer}>
           <div style={eventsLateralList}>
-            <EventsSideBar events={allEvents}/>
+            <EventsSideBar/>
           </div>
           <div style={{ width: '80%', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center',  }}>
             { 

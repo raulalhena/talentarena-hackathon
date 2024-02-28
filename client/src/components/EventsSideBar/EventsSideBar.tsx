@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function EventsSideBar({ events }) {
+function EventsSideBar() {
 
-  // console.log(events)
+  const [ events, setEvents ] = useState([{}]);
+
+  useEffect(() => {
+    const getAllEvents = async () => {
+      const resp = await fetch('http://localhost:3000/events');
+      setEvents(await resp.json());
+    }
+
+    getAllEvents();
+  }, []);
+
 
   return (
     <div style={{ marginTop: '45px'}}>
@@ -18,7 +28,6 @@ function EventsSideBar({ events }) {
               display: 'inline-block',
               }}>
               </span>
-              <p>{event._id}</p>
             </Link>
           </div>
         ))
