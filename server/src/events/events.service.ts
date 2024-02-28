@@ -20,7 +20,7 @@ export class EventsService {
     @InjectModel(Event.name) private eventModel: Model<Event>,
     @Inject(forwardRef(() => UsersService))
     private readonly usersService: UsersService,
-  ) {}
+  ) { }
 
   async findAll() {
     try {
@@ -37,15 +37,15 @@ export class EventsService {
       }
       const foundEvent = await this.eventModel.findById(id);
 
-      if (foundEvent) {
-        const updatedUsersPromises = foundEvent['users'].flatMap(
-          async (foundEvent) => {
-            await this.usersService.findOne(foundEvent.toString());
-          },
-        );
+      // if (foundEvent) {
+      //   const updatedUsersPromises = foundEvent['users'].flatMap(
+      //     async (foundEvent) => {
+      //       await this.usersService.findOne(foundEvent.toString());
+      //     },
+      //   );
 
-        await Promise.all(updatedUsersPromises);
-      }
+      //   await Promise.all(updatedUsersPromises);
+      // }
 
       return await foundEvent.populate('users');
     } catch (e) {
